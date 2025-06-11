@@ -20,6 +20,7 @@ export default function Header() {
           </Link>
           <Link
             href="https://open.kakao.com/o/sNeUE4Ah"
+            target="_blank"
             className="mr-5 hover:text-gray-900"
           >
             Contact
