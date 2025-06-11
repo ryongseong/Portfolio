@@ -3,30 +3,38 @@ import DarkModeToggleButton from "./DarkModeToggleButton";
 
 export default function Header() {
   return (
-    <header className="text-gray-600 body-font">
-      <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <header className="border-b border-slate-100 dark:border-slate-800">
+      <div className="container mx-auto flex items-center justify-between py-4 px-6">
         <Link
           href="/"
-          className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+          className="flex font-medium items-center text-slate-800 dark:text-white"
         >
-          <span className="ml-3 text-xl">Ryongseong</span>
+          <span className="text-xl tracking-tight">Ryongseong</span>
         </Link>
-        <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
-          <Link href="/" className="mr-5 hover:text-gray-900">
-            Home
-          </Link>
-          <Link href="/projects" className="mr-5 hover:text-gray-900">
-            Projects
-          </Link>
-          <Link
-            href="https://open.kakao.com/o/sNeUE4Ah"
-            target="_blank"
-            className="mr-5 hover:text-gray-900"
-          >
-            Contact
-          </Link>
-        </nav>
-        <DarkModeToggleButton />
+        <div className="flex items-center space-x-6">
+          <nav className="flex items-center space-x-6">
+            <Link
+              href="/"
+              className="text-sm font-medium hover:text-slate-900 dark:hover:text-white"
+            >
+              Home
+            </Link>
+            <Link
+              href="/projects"
+              className="text-sm font-medium hover:text-slate-900 dark:hover:text-white"
+            >
+              Projects
+            </Link>
+            <Link
+              href="https://open.kakao.com/o/sNeUE4Ah"
+              target="_blank"
+              className="text-sm font-medium hover:text-slate-900 dark:hover:text-white"
+            >
+              Contact
+            </Link>
+          </nav>
+          <DarkModeToggleButton />
+        </div>
       </div>
     </header>
   );

@@ -20,11 +20,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko" suppressHydrationWarning>
-      <body className="bg-primary">
+      <body className="bg-white dark:bg-slate-900 antialiased">
         <ThemeProvider>
-          <Header />
-          <main>{children}</main>
-          <Footer />
+          <div className="flex flex-col min-h-screen">
+            <Header />
+            <main className="flex-grow">{children}</main>
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>

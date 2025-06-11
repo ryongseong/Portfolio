@@ -1,6 +1,10 @@
-import Image from "next/image";
+"use client";
 
-interface IProjectItemProps {
+import { useState } from "react";
+import Image from "next/image";
+import ProjectModal from "./ProjectModal";
+
+export interface IProjectItemProps {
   id: string;
   title: string;
   description: string;
@@ -22,68 +26,82 @@ export default function ProjectItem({
   tags,
   imageUrl,
 }: IProjectItemProps) {
-  const calculateWorkPeriod = (start: string, end?: string) => {
-    const startDateStringArray = start.split("-");
-    const endDateStringArray = end ? end.split("-") : null;
+  // 모달 상태 관리
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const startDate = new Date(
-      Number(startDateStringArray[0]),
-      Number(startDateStringArray[1]) - 1,
-      Number(startDateStringArray[2])
-    );
-    const endDate = endDateStringArray
-      ? new Date(
-          Number(endDateStringArray[0]),
-          Number(endDateStringArray[1]) - 1,
-          Number(endDateStringArray[2])
-        )
-      : null;
-
-    const diffInMs = Math.abs(
-      endDate ? endDate.getTime() - startDate.getTime() : 0
-    );
-    const result = diffInMs / (1000 * 60 * 60 * 24);
-    return result;
+  const formatDate = (dateStr: string) => {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString("ko-KR", {
+      year: "numeric",
+      month: "short",
+    });
   };
 
   return (
-    <div key={id} className="project-card">
-      <Image
-        className="rounded-t-xl w-[400px] h-[200px] object-cover"
-        src={imageUrl}
-        alt={title}
-        width={400}
-        height={200}
-        quality={100}
-      />
-      <div className="p-4 flex flex-col ">
-        <h1 className="text-2xl font-bold ">{title}</h1>
-        <h3 className="mt-4 text-xl">{description}</h3>
-        <p className="my-1">
-          {workPeriod?.start} ~ {workPeriod?.end || ""} (
-          {workPeriod && workPeriod.end
-            ? `총 ${calculateWorkPeriod(workPeriod.start, workPeriod.end)}일`
-            : "진행 중"}
-          )
-        </p>
-        <div className="flex items-start mt-2 flex-wrap gap-2 text-sm">
-          {tags?.map((tag) => (
-            <h1
-              key={tag}
-              className="px-2 py-1 mr-2 rounded-md bg-sky-200 dark:bg-sky-700 w-30"
+    <>
+      <div
+        key={id}
+        className="project-card cursor-pointer"
+        onClick={() => setIsModalOpen(true)}
+      >
+        <Image
+          className="rounded-t-md w-full h-[180px] object-cover"
+          src={imageUrl}
+          alt={title}
+          width={400}
+          height={180}
+          quality={90}
+        />
+        <div className="p-4 flex flex-col space-y-3">
+          <h1 className="text-xl font-medium">{title}</h1>
+          <p className="text-sm text-slate-600 dark:text-slate-300 line-clamp-2">
+            {description}
+          </p>
+
+          <div className="flex flex-wrap gap-1.5 text-xs">
+            {tags?.map((tag) => (
+              <span
+                key={tag}
+                className="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex items-center justify-between pt-2 mt-1">
+            <p className="text-xs text-slate-500 dark:text-slate-400">
+              {workPeriod?.start && formatDate(workPeriod.start)}
+              {workPeriod?.end ? ` - ${formatDate(workPeriod.end)}` : " - 현재"}
+            </p>
+
+            <button
+              className="text-xs font-medium text-slate-600 hover:text-black dark:text-slate-400 dark:hover:text-white"
+              onClick={(e) => {
+                e.stopPropagation(); // 카드 클릭 이벤트가 발생하지 않도록 함
+                setIsModalOpen(true);
+              }}
             >
-              {tag}
-            </h1>
-          ))}
+              자세히 보기
+            </button>
+          </div>
         </div>
-        {githubLink === "" || githubLink === "Private" ? (
-          <p>비공개 프로젝트이거나 링크가 없습니다.</p>
-        ) : (
-          <a href={githubLink} target="_blank">
-            깃허브 입니다.
-          </a>
-        )}
       </div>
-    </div>
+
+      {/* 프로젝트 모달 */}
+      <ProjectModal
+        project={{
+          id,
+          title,
+          description,
+          githubLink,
+          workPeriod,
+          tags,
+          imageUrl,
+        }}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
+    </>
   );
 }

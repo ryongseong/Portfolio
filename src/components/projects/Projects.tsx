@@ -30,12 +30,15 @@ export default async function Projects() {
 
   return (
     <section>
-      <div className="flex flex-col items-center justify-center min-h-screen px-6 mb-10">
-        <h1 className="text-4xl font-bold sm:text-6xl">
-          총 프로젝트 :
-          <span className="pl-4 text-blue-500">{projects.results.length}</span>
+      <div className="container mx-auto flex flex-col px-4 py-12 mb-10">
+        <h1 className="text-3xl font-light mb-1">
+          프로젝트
+          <span className="text-sm ml-3 font-normal text-slate-500 dark:text-slate-400">
+            ({projects.results.length})
+          </span>
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 m-6 py-10">
+        <div className="h-0.5 w-20 bg-slate-200 dark:bg-slate-700 mb-10"></div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-4">
           {projects.results.map(
             ({
               id,
