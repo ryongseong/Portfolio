@@ -44,11 +44,11 @@ export default function ProjectItem({
         onClick={() => setIsModalOpen(true)}
       >
         <Image
-          className="rounded-t-md w-full h-[180px] object-cover"
+          className="rounded-t-md w-full h-[300px] object-cover"
           src={imageUrl}
           alt={title}
           width={400}
-          height={180}
+          height={300}
           quality={90}
         />
         <div className="p-4 flex flex-col space-y-3">
