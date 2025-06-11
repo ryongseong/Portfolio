@@ -4,6 +4,31 @@ import { useState } from "react";
 import Image from "next/image";
 import ProjectModal from "./ProjectModal";
 
+// 태그별 아이콘 매핑 객체
+const tagIcons: Record<string, string> = {
+  JavaScript: "/icons/javascript.png",
+  React: "/icons/react.png",
+  "Next.js": "/icons/nextjs.png",
+  TypeScript: "/icons/typescript.png",
+  "node.js": "/icons/nodejs.png",
+  Express: "/icons/express.png",
+  MongoDB: "/icons/mongodb.png",
+  PostgreSQL: "/icons/postgresql.png",
+  Python: "/icons/python.png",
+  Django: "/icons/django.png",
+  FastAPI: "/icons/fastapi.png",
+  "Llama 3.1": "/icons/llama.png",
+  OpenAI: "/icons/openai.jpeg",
+  "Gemma 2.0": "/icons/gemma.png",
+  Docker: "/icons/docker.png",
+  HTML: "/icons/html.png",
+  CSS: "/icons/css.png",
+  Vue: "/icons/vue.png",
+  TailwindCSS: "/icons/tailwindcss.png",
+  Vercel: "/icons/vercel.png",
+  SQLite3: "/icons/sqlite3.png",
+};
+
 export interface IProjectItemProps {
   id: string;
   title: string;
@@ -59,10 +84,14 @@ export default function ProjectItem({
 
           <div className="flex flex-wrap gap-1.5 text-xs">
             {tags?.map((tag) => (
-              <span
-                key={tag}
-                className="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300"
-              >
+              <span key={tag} className="flex items-center">
+                <Image
+                  src={tagIcons[tag]}
+                  alt={tag}
+                  width={16}
+                  height={16}
+                  className="inline-block mr-1"
+                />
                 {tag}
               </span>
             ))}

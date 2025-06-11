@@ -7,7 +7,7 @@ export default function Home() {
       <div className="container mx-auto flex px-6 md:flex-row flex-col items-center">
         <About />
       </div>
-      <div className="container mx-auto flex px-6 md:flex-row flex-col items-center mt-32">
+      <div className="container mx-auto flex px-6 md:flex-row flex-col items-center mt-32 justify-center">
         <Skills />
       </div>
     </section>
