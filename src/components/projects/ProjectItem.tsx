@@ -26,7 +26,6 @@ export default function ProjectItem({
   tags,
   imageUrl,
 }: IProjectItemProps) {
-  // 모달 상태 관리
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const formatDate = (dateStr: string) => {
@@ -78,7 +77,7 @@ export default function ProjectItem({
             <button
               className="text-xs font-medium text-slate-600 hover:text-black dark:text-slate-400 dark:hover:text-white"
               onClick={(e) => {
-                e.stopPropagation(); // 카드 클릭 이벤트가 발생하지 않도록 함
+                e.stopPropagation();
                 setIsModalOpen(true);
               }}
             >
@@ -88,7 +87,6 @@ export default function ProjectItem({
         </div>
       </div>
 
-      {/* 프로젝트 모달 */}
       <ProjectModal
         project={{
           id,
