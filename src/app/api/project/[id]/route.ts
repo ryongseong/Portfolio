@@ -1,11 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { NOTION_TOKEN } from "../../../../../config/index";
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
-  const { id: pageId } = params;
+export async function GET(request: NextRequest) {
+  const url = new URL(request.url);
+  const pathSegments = url.pathname.split("/");
+  const pageId = pathSegments[pathSegments.length - 1];
 
   try {
     const response = await fetch(

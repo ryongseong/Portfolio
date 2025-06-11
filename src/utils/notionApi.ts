@@ -24,11 +24,11 @@ interface NotionBlock {
     id: string;
     type: string;
     properties?: {
-      title?: any[][];
-      [key: string]: any;
+      title?: Array<Array<string>>;
+      [key: string]: unknown;
     };
     content?: string[];
-    [key: string]: any;
+    [key: string]: unknown;
   };
 }
 
@@ -36,7 +36,7 @@ interface NotionRecordMap {
   block: {
     [key: string]: NotionBlock;
   };
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export function parseNotionBlocks(recordMap: NotionRecordMap) {
@@ -70,7 +70,7 @@ export function parseNotionBlocks(recordMap: NotionRecordMap) {
 
       if (block && block.properties && block.properties.title) {
         const blockContent = block.properties.title
-          .map((textArray: any[]) => textArray[0])
+          .map((textArray: string[]) => textArray[0])
           .join(" ");
 
         parsedBlocks.push({
