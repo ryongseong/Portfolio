@@ -1,6 +1,46 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
+.skill-slider .slick-slide {
+  opacity: 1 !important;
+  transition: transform 0.3s ease;
+}
+
+.skill-slider .slick-list {
+  overflow: hidden !important;
+  margin: 0 -10px;
+}
+
+.skill-slider .slick-track {
+  display: flex !important;
+}
+
+.skill-slider .slick-slide > div {
+  height: 100%;
+  padding: 10px;
+}
+
+.skill-slider .slick-dots li button:before {
+  color: #6366f1 !important;
+  opacity: 0.5;
+}
+
+.skill-slider .slick-dots li.slick-active button:before {
+  color: #6366f1 !important;
+  opacity: 1;
+}
+
+.skill-slider .slick-prev,
+.skill-slider .slick-next {
+  z-index: 20;
+}
+
+.skill-slider .slick-prev:before,
+.skill-slider .slick-next:before {
+  color: #6366f1;
+  font-size: 24px;
+}
+
 .bg-primary {
     @apply bg-white dark:bg-slate-800
 }
@@ -71,3 +111,83 @@ a {
 p {
     @apply text-slate-600 dark:text-slate-300
 }
+
+
+.slick-prev,
+          .slick-next {
+            width: 40px;
+            height: 40px;
+            z-index: 10;
+          }
+
+          .slick-prev {
+            left: -10px;
+          }
+
+          .slick-next {
+            right: -10px;
+          }
+
+          .slick-prev:before,
+          .slick-next:before {
+            color: #6366f1;
+            font-size: 24px;
+            opacity: 0.9;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+          }
+
+          .slick-dots {
+            bottom: -35px;
+          }
+
+          .slick-dots li button:before {
+            font-size: 10px;
+            color: #6366f1;
+            opacity: 0.5;
+          }
+
+          .slick-dots li.slick-active button:before {
+            opacity: 1;
+            transform: scale(1.2);
+          }
+
+          .slick-track {
+            display: flex;
+            padding: 10px 0;
+            margin-left: 0;
+            margin-right: 0;
+          }
+
+          .slick-slide {
+            height: inherit;
+          }
+
+          .slick-slide > div {
+            height: 100%;
+          }
+
+          .skill-carousel-container {
+            margin: 0 -0.5rem;
+            padding: 0 20px;
+          }
+
+          @media (min-width: 1280px) {
+            .skill-carousel-container {
+              padding: 0 40px;
+            }
+          }
+
+          @media (max-width: 640px) {
+            .slick-prev {
+              left: -5px;
+            }
+
+            .slick-next {
+              right: -5px;
+            }
+
+            .slick-prev:before,
+            .slick-next:before {
+              font-size: 20px;
+            }
+          }
