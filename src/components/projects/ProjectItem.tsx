@@ -18,7 +18,7 @@ const tagIcons: Record<string, string> = {
   Django: "/icons/django.png",
   FastAPI: "/icons/fastapi.png",
   "Llama 3.1": "/icons/llama.png",
-  OpenAI: "/icons/openai.jpeg",
+  OpenAI: "/icons/openai.png",
   "Gemma 2.0": "/icons/gemma.png",
   Docker: "/icons/docker.png",
   HTML: "/icons/html.png",
