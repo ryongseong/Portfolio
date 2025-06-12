@@ -20,6 +20,18 @@ export default function Header() {
               Home
             </Link>
             <Link
+              href="/#aboutme"
+              className="text-sm font-medium hover:text-slate-900 dark:hover:text-white"
+            >
+              About Me
+            </Link>
+            <Link
+              href="/#skills"
+              className="text-sm font-medium hover:text-slate-900 dark:hover:text-white"
+            >
+              Skills
+            </Link>
+            <Link
               href="/projects"
               className="text-sm font-medium hover:text-slate-900 dark:hover:text-white"
             >

@@ -1,10 +1,18 @@
 import Link from "next/link";
-import Animation from "./animation";
+import Animation from "./Animation";
+import Image from "next/image";
 
 export default function About() {
   return (
     <>
       <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+        <Image
+          src="/images/profile.png"
+          alt="Profile Picture"
+          className="w-32 h-32 mb-4 rounded-full object-cover shadow-lg"
+          width={128}
+          height={128}
+        />
         <h1 className="title-font sm:text-5xl text-4xl mb-6 font-light">
           안녕하세요
           <br className="hidden lg:inline-block" />

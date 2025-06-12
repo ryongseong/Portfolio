@@ -1,13 +1,23 @@
-import About from "@/components/home/about";
-import Skills from "@/components/home/skills";
+import About from "@/components/home/About";
+import AboutMe from "@/components/home/AboutMe";
+import Skills from "@/components/home/Skills";
 
 export default function Home() {
   return (
     <section className="flex min-h-[calc(100vh-80px)] flex-col items-center justify-center">
-      <div className="container mx-auto flex px-6 md:flex-row flex-col items-center">
+      <div className="container mx-auto flex px-6 md:flex-row flex-col items-center my-36">
         <About />
       </div>
-      <div className="container mx-auto flex px-6 md:flex-row flex-col items-center mt-32 justify-center">
+      <div
+        id="aboutme"
+        className="container mx-auto flex px-6 md:flex-row flex-col items-center justify-center mt-36"
+      >
+        <AboutMe />
+      </div>
+      <div
+        id="skills"
+        className="container mx-auto flex px-6 md:flex-row flex-col items-center justify-center mt-36"
+      >
         <Skills />
       </div>
     </section>
