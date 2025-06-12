@@ -12,7 +12,7 @@ export default function Footer() {
             <span className="text-sm">Ryongseong</span>
           </Link>
           <p className="text-xs sm:ml-4 sm:pl-4 sm:border-l sm:border-slate-200 dark:sm:border-slate-700 sm:py-2 sm:mt-0 mt-2">
-            © 2025 Ryongseong
+            © 2025 Seong Ryong Lim. All rights reserved.
           </p>
         </div>
         <div className="flex space-x-4 sm:mt-0 mt-4">
