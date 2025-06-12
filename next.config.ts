@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import path from "path";
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -21,6 +22,10 @@ const nextConfig: NextConfig = {
         hostname: "prod-files-secure.s3.us-west-2.amazonaws.com",
       },
     ],
+  },
+  webpack: (config) => {
+    config.resolve.alias["@"] = path.resolve(__dirname, "src");
+    return config;
   },
 };
 
