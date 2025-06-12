@@ -1,5 +1,6 @@
 import About from "@/components/home/about";
 import AboutMe from "@/components/home/AboutMe";
+import ScrollToTopBtn from "@/components/home/ScrollToTopBtn";
 import Skills from "@/components/home/skills";
 
 export default function Home() {
@@ -19,6 +20,9 @@ export default function Home() {
         className="container mx-auto flex px-6 md:flex-row flex-col items-center justify-center mt-36"
       >
         <Skills />
+      </div>
+      <div>
+        <ScrollToTopBtn />
       </div>
     </section>
   );
