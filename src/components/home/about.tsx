@@ -16,9 +16,8 @@ export default function About() {
         <h1 className="title-font sm:text-5xl text-4xl mb-6 font-light">
           안녕하세요
           <br className="hidden lg:inline-block" />
-          <span className="font-medium mt-2 block">
-            풀스택 개발자 임성룡입니다.
-          </span>
+          <span className="font-semibold mt-2 block">풀스택 개발자</span>
+          <span className="font-medium mt-2">임성룡</span>입니다.
         </h1>
         <p className="mb-8 leading-relaxed text-lg max-w-lg">
           저는 웹과 모바일 애플리케이션 개발에 열정을 가진
