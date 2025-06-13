@@ -6,7 +6,14 @@ export default function ScrollToTopBtn() {
   return (
     <Link
       href="/"
-      className="fixed bottom-20 right-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-gray-800 text-white shadow-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500"
+      className="
+      fixed
+      bottom-20 right-4 z-50 flex h-12 w-12 
+      items-center justify-center rounded-full 
+      bg-gray-200 dark:bg-gray-800
+      text-white shadow-lg
+      hover:bg-gray-700 dark:hover:bg-gray-300
+      focus:outline-none focus:ring-2 focus:ring-gray-500"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
