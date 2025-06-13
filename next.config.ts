@@ -4,6 +4,12 @@ import path from "path";
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
+    domains: [
+      "www.notion.so",
+      "images.unsplash.com",
+      "s3.us-west-2.amazonaws.com",
+      "prod-files-secure.s3.us-west-2.amazonaws.com",
+    ],
     remotePatterns: [
       {
         protocol: "https",
@@ -20,8 +26,6 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "prod-files-secure.s3.us-west-2.amazonaws.com",
-        pathname: "/e7d40b4c-0d76-4999-b1ea-8baef3c16016/**",
-        search: "",
       },
     ],
   },
