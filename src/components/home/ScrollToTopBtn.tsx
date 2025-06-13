@@ -14,6 +14,10 @@ export default function ScrollToTopBtn() {
       text-white shadow-lg
       hover:bg-gray-700 dark:hover:bg-gray-300
       focus:outline-none focus:ring-2 focus:ring-gray-500"
+      onClick={(e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

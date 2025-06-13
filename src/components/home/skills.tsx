@@ -5,19 +5,20 @@ const skills = {
     id: "Language",
     language: {
       JavaScript: "#f7df1e",
-      TypeScript: "#3178c6",
       Python: "#306998",
+      TypeScript: "#3178c6",
     },
   },
   FrontEnd: {
     id: "FrontEnd",
     language: {
       React: "#61dafb",
+      "React Native": "#61dafb",
+      "Vue.js": "#42b883",
       "Next.js": "#000000",
       HTML: "#e34c26",
       CSS: "#1572b6",
       "Tailwind CSS": "#06b6d4",
-      "Vue.js": "#42b883",
     },
   },
   BackEnd: {
@@ -26,10 +27,9 @@ const skills = {
       "Node.js": "#8cc84b",
       Express: "#000000",
       FastAPI: "#009688",
-      PostgreSQL: "#336791",
-      MongoDB: "#47A248",
       Docker: "#2496ED",
       Django: "#092E20",
+      "REST API": "#0052CC",
     },
   },
   DevOps: {
