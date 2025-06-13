@@ -41,18 +41,6 @@ export default function Header() {
               Home
             </Link>
             <Link
-              href="/#aboutme"
-              className="text-xs md:text-sm font-medium hover:text-slate-900 dark:hover:text-white"
-            >
-              About Me
-            </Link>
-            <Link
-              href="/#skills"
-              className="text-xs md:text-sm font-medium hover:text-slate-900 dark:hover:text-white"
-            >
-              Skills
-            </Link>
-            <Link
               href="/projects"
               className="text-xs md:text-sm font-medium hover:text-slate-900 dark:hover:text-white"
             >
