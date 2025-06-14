@@ -4,32 +4,42 @@ const skills = {
   Language: {
     id: "Language",
     language: {
-      JavaScript: "#f7df1e",
       Python: "#306998",
+      JavaScript: "#f7df1e",
       TypeScript: "#3178c6",
     },
   },
   FrontEnd: {
     id: "FrontEnd",
     language: {
+      HTML: "#e34c26",
+      CSS: "#1572b6",
       React: "#61dafb",
       "React Native": "#61dafb",
       "Vue.js": "#42b883",
       "Next.js": "#000000",
-      HTML: "#e34c26",
-      CSS: "#1572b6",
       "Tailwind CSS": "#06b6d4",
     },
   },
   BackEnd: {
     id: "BackEnd",
     language: {
+      Django: "#092E20",
+      FastAPI: "#009688",
       "Node.js": "#8cc84b",
       Express: "#000000",
-      FastAPI: "#009688",
-      Docker: "#2496ED",
-      Django: "#092E20",
+      "Nest.js": "#000000",
       "REST API": "#0052CC",
+    },
+  },
+  DataBase: {
+    id: "DataBase",
+    language: {
+      PostgreSQL: "#336791",
+      MongoDB: "#47A248",
+      MySQL: "#00758F",
+      SQLite: "#003B57",
+      Elasticsearch: "#005571",
     },
   },
   DevOps: {
@@ -46,17 +56,9 @@ const skills = {
       Git: "#F05032",
       GitHub: "#181717",
       Postman: "#FF6C37",
-      Figma: "#F24E1E",
       VSCode: "#007ACC",
-    },
-  },
-  DataBase: {
-    id: "DataBase",
-    language: {
-      PostgreSQL: "#336791",
-      MongoDB: "#47A248",
-      MySQL: "#00758F",
-      SQLite: "#003B57",
+      Figma: "#F24E1E",
+      Notion: "#000000",
     },
   },
 };
