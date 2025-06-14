@@ -66,7 +66,7 @@ export default async function Projects() {
               <ProjectItem
                 key={id}
                 id={id}
-                imageUrl={cover.file?.url || cover.external?.url || ""}
+                imageUrl={cover.external?.url || cover.file?.url || ""}
                 title={properties.Name.title[0]?.plain_text || "No Name"}
                 description={
                   properties.Description.rich_text[0]?.plain_text ||
