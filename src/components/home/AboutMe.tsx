@@ -114,13 +114,15 @@ export default function AboutMe() {
           {features.map((feature) => (
             <div
               key={feature.name}
-              className="flex flex-col items-center bg-white/80 dark:bg-gray-800/80 rounded-2xl shadow-lg p-8 transition-transform hover:-translate-y-2 hover:shadow-2xl"
+              className="flex flex-col items-center p-8
+                bg-white/80 dark:bg-gray-800/80 rounded-2xl shadow-lg 
+                 transition-transform hover:-translate-y-2 hover:shadow-2xl"
             >
               <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-tr from-blue-500 to-indigo-500 dark:from-indigo-400 dark:to-blue-400 text-white mb-4 shadow-md">
                 {feature.icon}
               </div>
               <div className="text-center">
-                <p className="text-lg font-semibold text-gray-800 dark:text-gray-100">
+                <p className="text-xl font-bold text-gray-800 dark:text-gray-100">
                   {feature.name}
                 </p>
                 <p className="mt-2 text-gray-600 dark:text-gray-300 font-medium">

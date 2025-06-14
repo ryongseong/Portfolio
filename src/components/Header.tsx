@@ -72,24 +72,6 @@ export default function Header() {
             </li>
             <li>
               <Link
-                href="/#aboutme"
-                className="block text-sm font-medium hover:text-slate-900 dark:hover:text-white"
-                onClick={() => setMenuOpen(false)}
-              >
-                About Me
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/#skills"
-                className="block text-sm font-medium hover:text-slate-900 dark:hover:text-white"
-                onClick={() => setMenuOpen(false)}
-              >
-                Skills
-              </Link>
-            </li>
-            <li>
-              <Link
                 href="/projects"
                 className="block text-sm font-medium hover:text-slate-900 dark:hover:text-white"
                 onClick={() => setMenuOpen(false)}
