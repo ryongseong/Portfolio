@@ -18,7 +18,7 @@ export default function Header() {
         </Link>
 
         <button
-          className="block md:hidden text-slate-800 dark:text-white"
+          className="md:hidden text-slate-800 dark:text-white"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -32,35 +32,40 @@ export default function Header() {
           </svg>
         </button>
 
-        <div className="flex items-center space-x-6">
-          <nav className="hidden md:flex items-center space-x-6">
-            <Link
-              href="/"
-              className="text-xs md:text-sm font-medium hover:text-slate-900 dark:hover:text-white"
-            >
-              Home
-            </Link>
-            <Link
-              href="/projects"
-              className="text-xs md:text-sm font-medium hover:text-slate-900 dark:hover:text-white"
-            >
-              Projects
-            </Link>
-            <Link
-              href="https://open.kakao.com/o/sNeUE4Ah"
-              target="_blank"
-              className="text-xs md:text-sm font-medium hover:text-slate-900 dark:hover:text-white"
-            >
-              Contact
-            </Link>
-          </nav>
+        <nav className="hidden md:flex items-center space-x-6">
+          <Link
+            href="/"
+            className="text-xs md:text-sm font-medium hover:text-slate-900 dark:hover:text-white"
+          >
+            Home
+          </Link>
+          <Link
+            href="/projects"
+            className="text-xs md:text-sm font-medium hover:text-slate-900 dark:hover:text-white"
+          >
+            Projects
+          </Link>
+          <Link
+            href="https://open.kakao.com/o/sNeUE4Ah"
+            target="_blank"
+            className="text-xs md:text-sm font-medium hover:text-slate-900 dark:hover:text-white"
+          >
+            Contact
+          </Link>
+          <Link
+            href="https://nebulous-visor-f4e.notion.site/1f44db7ba7ba8057a80fc07ec3b42c95?pvs=74"
+            target="_blank"
+            className="text-xs md:text-sm font-medium hover:text-slate-900 dark:hover:text-white"
+          >
+            Notion
+          </Link>
           <DarkModeToggleButton />
-        </div>
+        </nav>
       </div>
 
       {menuOpen && (
         <nav className="md:hidden bg-white dark:bg-slate-900 px-6 pb-4">
-          <ul className="flex flex-col space-y-3">
+          <ul className="flex flex-col space-y-3 text-slate-800 dark:text-white text-center">
             <li>
               <Link
                 href="/"
@@ -88,6 +93,19 @@ export default function Header() {
               >
                 Contact
               </Link>
+            </li>
+            <li>
+              <Link
+                href="https://nebulous-visor-f4e.notion.site/1f44db7ba7ba8057a80fc07ec3b42c95?pvs=74"
+                target="_blank"
+                className="block text-sm font-medium hover:text-slate-900 dark:hover:text-white"
+                onClick={() => setMenuOpen(false)}
+              >
+                Notion
+              </Link>
+            </li>
+            <li>
+              <DarkModeToggleButton />
             </li>
           </ul>
         </nav>
