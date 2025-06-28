@@ -47,6 +47,7 @@ export function parseNotionBlocks(recordMap: NotionRecordMap) {
   let pageBlock: NotionBlock["value"] | null = null;
   let pageBlockId: string | null = null;
 
+  // 페이지 블록 찾기
   for (const blockId in recordMap.block) {
     const block = recordMap.block[blockId].value;
     if (block.type === "page") {
@@ -60,36 +61,64 @@ export function parseNotionBlocks(recordMap: NotionRecordMap) {
     return { blocks: [], content: "" };
   }
 
-  const contentBlocks: string[] = pageBlock.content || [];
   const parsedBlocks: Array<{ id: string; type: string; content: string }> = [];
   let textContent = "";
 
-  contentBlocks.forEach((blockId: string) => {
-    if (recordMap.block[blockId]) {
-      const block = recordMap.block[blockId].value;
+  const processBlock = (blockId: string, depth: number = 0) => {
+    const blockWrapper = recordMap.block[blockId];
+    if (!blockWrapper || !blockWrapper.value) return;
 
-      if (block && block.properties && block.properties.title) {
-        const blockContent = block.properties.title
-          .map((textArray: string[]) => textArray[0])
-          .join(" ");
+    const block = blockWrapper.value;
 
-        parsedBlocks.push({
-          id: blockId,
-          type: block.type,
-          content: blockContent,
-        });
+    let blockContent = "";
+    if (block.properties && block.properties.title) {
+      blockContent = block.properties.title
+        .map((textArray: string[]) => textArray[0])
+        .join(" ");
+    }
 
-        if (block.type === "text" || block.type === "bulleted_list") {
+    if (blockContent.trim()) {
+      parsedBlocks.push({
+        id: blockId,
+        type: block.type,
+        content: blockContent,
+      });
+
+      switch (block.type) {
+        case "text":
+        case "bulleted_list":
           textContent += blockContent + "\n\n";
-        } else if (
-          block.type === "sub_header" ||
-          block.type === "sub_sub_header"
-        ) {
+          break;
+        case "sub_header":
+        case "sub_sub_header":
           textContent += `## ${blockContent}\n\n`;
-        }
+          break;
+        case "header":
+          textContent += `# ${blockContent}\n\n`;
+          break;
+        case "numbered_list":
+          textContent += `${blockContent}\n\n`;
+          break;
+        default:
+          if (blockContent.trim()) {
+            textContent += blockContent + "\n\n";
+          }
+          break;
       }
     }
-  });
+
+    if (block.content && Array.isArray(block.content)) {
+      block.content.forEach((childBlockId: string) => {
+        processBlock(childBlockId, depth + 1);
+      });
+    }
+  };
+
+  if (pageBlock.content && Array.isArray(pageBlock.content)) {
+    pageBlock.content.forEach((blockId: string) => {
+      processBlock(blockId);
+    });
+  }
 
   let metadata: Record<string, string> = {};
   if (pageBlock.properties) {
