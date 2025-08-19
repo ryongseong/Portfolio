@@ -85,7 +85,7 @@ const features = [
   },
   {
     name: "학력",
-    description: "동의대학교 산업ICT기술공학과",
+    description: "동의대학교<br />산업ICT기술공학과",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -125,8 +125,10 @@ export default function AboutMe() {
                 <p className="text-xl font-bold text-gray-800 dark:text-gray-100">
                   {feature.name}
                 </p>
-                <p className="mt-2 text-gray-600 dark:text-gray-300 font-medium">
-                  {feature.description}
+                <p className="mt-2 text-md text-gray-600 dark:text-gray-300 font-medium">
+                  <span
+                    dangerouslySetInnerHTML={{ __html: feature.description }}
+                  />
                 </p>
               </div>
             </div>
