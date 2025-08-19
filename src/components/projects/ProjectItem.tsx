@@ -27,6 +27,10 @@ const tagIcons: Record<string, string> = {
   TailwindCSS: "/icons/tailwindcss.png",
   Vercel: "/icons/vercel.png",
   SQLite3: "/icons/sqlite3.png",
+  Java: "/icons/java.png",
+  SpringBoot: "/icons/springboot.png",
+  MySQL: "/icons/mysql.png",
+  Redis: "/icons/redis.png",
 };
 
 export interface IProjectItemProps {
