@@ -79,6 +79,7 @@ export default function ProjectItem({
           width={400}
           height={300}
           quality={90}
+          unoptimized
         />
         <div className="p-4 flex flex-col space-y-3">
           <h1 className="text-xl font-medium">{title}</h1>
