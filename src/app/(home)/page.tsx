@@ -13,20 +13,18 @@ export default function Home() {
       <ScrollToBtn target="aboutme" />
       <div
         id="aboutme"
-        className="container mx-auto flex px-6 md:flex-row flex-col items-center justify-center mt-36"
+        className="container mx-auto flex px-6 flex-col items-center justify-center mt-36"
       >
         <AboutMe />
+        <ScrollToBtn target="skills" />
       </div>
-      <ScrollToBtn target="skills" />
       <div
         id="skills"
         className="container mx-auto flex px-6 md:flex-row flex-col items-center justify-center mt-36"
       >
         <Skills />
       </div>
-      <div>
-        <ScrollToTopBtn />
-      </div>
+      <ScrollToTopBtn />
     </section>
   );
 }
