@@ -2,7 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
-import { getProjectDetails, parseNotionBlocks } from "@/utils/notionApi";
+import { projects } from "@/data/projects";
 
 interface IProjectModalProps {
   id: string;
@@ -30,7 +30,6 @@ export default function ProjectModal({
 }: ProjectModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
   const [detailContent, setDetailContent] = useState<string>("");
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<"description" | "details">(
     "description"
   );
@@ -65,28 +64,16 @@ export default function ProjectModal({
   }, [isOpen, onClose]);
 
   useEffect(() => {
-    async function fetchProjectDetails() {
-      if (isOpen && project.id) {
-        setIsLoading(true);
-        try {
-          const data = await getProjectDetails(project.id);
-          if (data && data.recordMap) {
-            const parsedData = parseNotionBlocks(data.recordMap);
-            setDetailContent(parsedData.content);
-
-            if (parsedData.content && parsedData.content.trim().length > 0) {
-              setActiveTab("details");
-            }
-          }
-        } catch (error) {
-          console.error("Error fetching project details:", error);
-        } finally {
-          setIsLoading(false);
-        }
+    if (isOpen && project.id) {
+      // projects 배열에서 해당 프로젝트의 상세 정보를 가져옴
+      const projectData = projects.find((p) => p.id === project.id);
+      if (projectData?.detailContent) {
+        setDetailContent(projectData.detailContent);
+        setActiveTab("details");
+      } else {
+        setDetailContent("");
       }
     }
-
-    fetchProjectDetails();
   }, [isOpen, project.id]);
 
   const formatDate = (dateStr: string) => {
@@ -99,18 +86,131 @@ export default function ProjectModal({
   };
 
   const formatMarkdown = (text: string) => {
-    return text
-      .split("\n")
-      .map((line) => {
-        if (line.startsWith("## ")) {
-          return `<h3 class="text-lg font-medium mt-4 mb-2">${line.replace(
-            "## ",
-            ""
-          )}</h3>`;
+    const lines = text.split("\n");
+    let inTable = false;
+    let tableRows: string[] = [];
+
+    const processedLines = lines.map((line, index) => {
+      const trimmedLine = line.trim();
+
+      if (!trimmedLine) return "";
+
+      // 표 처리
+      if (trimmedLine.includes("|")) {
+        if (!inTable) {
+          inTable = true;
+          tableRows = [];
         }
-        return `<p class="mb-3">${line}</p>`;
-      })
-      .join("");
+        tableRows.push(trimmedLine);
+
+        // 다음 줄이 표가 아니거나 마지막 줄인 경우 표 렌더링
+        const nextLine = lines[index + 1]?.trim();
+        if (!nextLine?.includes("|") || index === lines.length - 1) {
+          inTable = false;
+          return formatTable(tableRows);
+        }
+        return ""; // 표 중간 줄은 빈 문자열 반환
+      }
+
+      // 제목 처리
+      if (trimmedLine.startsWith("### ")) {
+        return `<h4 class="text-base font-medium mt-3 mb-2 text-slate-800 dark:text-slate-200">${trimmedLine.replace(
+          "### ",
+          ""
+        )}</h4>`;
+      }
+      if (trimmedLine.startsWith("## ")) {
+        return `<h3 class="text-lg font-semibold mt-6 mb-3 text-slate-900 dark:text-white">${trimmedLine.replace(
+          "## ",
+          ""
+        )}</h3>`;
+      }
+
+      // 이미지 처리
+      if (trimmedLine.startsWith("img(") && trimmedLine.endsWith(")")) {
+        const imagePath = trimmedLine.slice(4, -1).trim();
+        return `<div class="my-6"><img src="${imagePath}" alt="Project Image" class="w-full rounded-lg shadow-md" /></div>`;
+      }
+
+      // 리스트 처리
+      if (trimmedLine.startsWith("- ")) {
+        let content = trimmedLine.replace("- ", "");
+        content = processInlineFormatting(content);
+        return `<li class="ml-6 mb-2 text-slate-700 dark:text-slate-300 list-disc">${content}</li>`;
+      }
+
+      // 코드 블록 처리
+      if (trimmedLine.startsWith("```") && trimmedLine.endsWith("```")) {
+        const codeContent = trimmedLine.slice(3, -3).trim();
+        return `<pre class="bg-slate-100 dark:bg-slate-700 rounded-lg p-4 overflow-x-auto my-4"><code class="text-sm font-mono text-blue-600 dark:text-blue-400">${codeContent}</code></pre>`;
+      }
+
+      // 일반 텍스트 처리
+      const processed = processInlineFormatting(trimmedLine);
+      return `<p class="mb-3 text-slate-700 dark:text-slate-300 leading-relaxed">${processed}</p>`;
+    });
+
+    return processedLines.join("");
+  };
+
+  // 인라인 포맷팅 처리 함수
+  const processInlineFormatting = (text: string) => {
+    // 링크 처리: [텍스트](url)
+    text = text.replace(
+      /\[([^\]]+)\]\(([^)]+)\)/g,
+      '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">$1</a>'
+    );
+
+    // 인라인 코드 처리
+    text = text.replace(
+      /`([^`]+)`/g,
+      '<code class="px-2 py-0.5 bg-slate-100 dark:bg-slate-700 rounded text-sm font-mono text-blue-600 dark:text-blue-400">$1</code>'
+    );
+
+    // 볼드 처리
+    text = text.replace(
+      /\*\*(.*?)\*\*/g,
+      '<strong class="font-semibold text-slate-900 dark:text-white">$1</strong>'
+    );
+
+    return text;
+  };
+
+  // 표 포맷팅 함수
+  const formatTable = (rows: string[]) => {
+    if (rows.length < 2) return "";
+
+    const tableHtml = rows.map((row, index) => {
+      // 구분선(---|---) 제거
+      if (row.match(/^\|[\s\-:|]+\|$/)) return "";
+
+      const cells = row
+        .split("|")
+        .filter((cell) => cell.trim())
+        .map((cell) => processInlineFormatting(cell.trim()));
+
+      if (index === 0) {
+        // 헤더 행
+        return `<tr class="bg-slate-100 dark:bg-slate-700">${cells
+          .map(
+            (cell) =>
+              `<th class="px-4 py-2 text-left font-semibold text-slate-900 dark:text-white border border-slate-300 dark:border-slate-600">${cell}</th>`
+          )
+          .join("")}</tr>`;
+      } else {
+        // 데이터 행
+        return `<tr class="hover:bg-slate-50 dark:hover:bg-slate-700/50">${cells
+          .map(
+            (cell) =>
+              `<td class="px-4 py-2 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-600">${cell}</td>`
+          )
+          .join("")}</tr>`;
+      }
+    });
+
+    return `<div class="overflow-x-auto my-6"><table class="w-full border-collapse border border-slate-300 dark:border-slate-600 rounded-lg overflow-hidden">${tableHtml.join(
+      ""
+    )}</table></div>`;
   };
 
   if (!isOpen) return null;
@@ -197,14 +297,11 @@ export default function ProjectModal({
                   ? "text-blue-600 dark:text-blue-400"
                   : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100"
               }`}
-              disabled={isLoading || !detailContent}
+              disabled={!detailContent}
             >
               상세 정보
               {activeTab === "details" && (
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 dark:bg-blue-400"></span>
-              )}
-              {isLoading && (
-                <span className="ml-2 inline-block w-3 h-3 border-2 border-t-blue-600 dark:border-t-blue-400 border-blue-200 dark:border-slate-600 rounded-full animate-spin"></span>
               )}
             </button>
           </div>
@@ -347,14 +444,7 @@ export default function ProjectModal({
             </div>
           ) : (
             <div className="mt-2">
-              {isLoading ? (
-                <div className="flex flex-col items-center justify-center py-12">
-                  <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mb-4"></div>
-                  <p className="text-slate-500 dark:text-slate-400">
-                    상세 정보를 불러오는 중...
-                  </p>
-                </div>
-              ) : detailContent ? (
+              {detailContent ? (
                 <div>
                   <div
                     className="text-slate-600 dark:text-slate-300 leading-relaxed prose prose-slate dark:prose-invert prose-img:rounded-lg prose-headings:font-semibold prose-a:text-blue-600 dark:prose-a:text-blue-400 max-w-none"
