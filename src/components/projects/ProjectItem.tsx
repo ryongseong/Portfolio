@@ -31,6 +31,9 @@ const tagIcons: Record<string, string> = {
   SpringBoot: "/icons/springboot.png",
   MySQL: "/icons/mysql.png",
   Redis: "/icons/redis.png",
+  MQTT: "/icons/mqtt.png",
+  Mediapipe: "/icons/mediapipe.png",
+  OpenCV: "/icons/opencv.png",
 };
 
 export interface IProjectItemProps {
@@ -95,9 +98,15 @@ export default function ProjectItem({
                   alt={tag}
                   width={16}
                   height={16}
-                  className="inline-block mr-1"
+                  className="inline-block mr-1 dark:hidden"
                 />
-                {tag}
+                <Image
+                  src={tagIcons[tag].replace(/(\.\w+)$/, "-dark$1")}
+                  alt={tag}
+                  width={16}
+                  height={16}
+                  className="hidden dark:inline-block mr-1"
+                />
               </span>
             ))}
           </div>

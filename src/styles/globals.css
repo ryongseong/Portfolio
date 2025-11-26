@@ -142,3 +142,14 @@ animation: var(--animate-bounce); /* bounce 1s infinite */
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
+
+@layer utilities {
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
