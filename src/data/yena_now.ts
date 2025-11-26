@@ -3,6 +3,9 @@ export const YenaNow = {
   title: "예나, 지금(Yena, Now)",
   description:
     "멀리 있어도 함께 추억을 남길 수 있는 온라인 영상 인생네컷 서비스",
+  summary: `WebRTC와 MediaPipe 기반으로 최대 4명이 동시에 참여해 실시간 배경 제거 N컷 사진·영상을 촬영·편집·공유할 수 있는 온라인 포토부스 웹 서비스를 구현한 프로젝트입니다.​
+  React + TypeScript, LiveKit, Canvas, S3, Zustand 등을 사용해 촬영·배경 합성·편집·업로드까지 전 과정을 브라우저에서 처리하는 프론트엔드 핵심 기능을 담당하며 약 60%를 기여했습니다.​
+  Canvas 렌더링 최적화, WebRTC 동기화, MediaPipe 성능 튜닝 등을 통해 평균 지연 200ms 이하, 30fps 배경 제거, 타입 안정성을 확보하며 실시간 협업과 고품질 N컷 생성 경험을 제공했습니다.`,
   detailContent: `✔️ **프로젝트 개요**
 
   **목표**

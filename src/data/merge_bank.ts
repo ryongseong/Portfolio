@@ -3,6 +3,9 @@ export const MergeBank = {
   title: "SSAFY 1학기 최종 관통 프로젝트 (금융)",
   description:
     "개인 금융 관리 및 금융 상품 추천 서비스를 제공하는 웹 애플리케이션",
+  summary: `Django REST Framework와 JWT 인증 기반으로 개인 맞춤형 금융 관리 및 상품 추천 백엔드 API를 구현했으며, OpenAI API와 YouTube Data API 연동, 카카오맵 API를 활용한 은행 지점 검색 기능도 포함했습니다.
+  Vue.js 3, Pinia, Bootstrap 5, Chart.js 등 최신 프론트엔드 기술을 사용해 반응형 UI와 상태 관리, 금융 데이터 시각화, 다국어 지원을 구현하는 풀스택 역할을 수행했습니다.  
+  API 문서화와 Git 협업을 통해 단기간(7일) 내 완성도 높은 금융 서비스 플랫폼을 구축하고, AI 금융 상담, 소셜 로그인 등 다양한 외부 API 연동 경험을 쌓았습니다.`,
   detailContent: `## ✔️ 프로젝트 개요
 
   - **목표**: 개인 맞춤형 금융 관리 및 금융 상품 추천 서비스 제공
