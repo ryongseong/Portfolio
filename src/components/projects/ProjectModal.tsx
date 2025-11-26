@@ -87,15 +87,35 @@ export default function ProjectModal({
 
   const formatMarkdown = (text: string) => {
     const lines = text.split("\n");
+
     let inTable = false;
     let tableRows: string[] = [];
+
+    let inCodeBlock = false;
+    let codeLines: string[] = [];
 
     const processedLines = lines.map((line, index) => {
       const trimmedLine = line.trim();
 
+      if (trimmedLine.startsWith("```") && !inCodeBlock) {
+        inCodeBlock = true;
+        codeLines = [];
+        return "";
+      }
+
+      if (trimmedLine.startsWith("```") && inCodeBlock) {
+        inCodeBlock = false;
+        const codeContent = codeLines.join("\n");
+        return `<pre class="bg-slate-100 dark:bg-slate-700 rounded-lg p-4 overflow-x-auto my-4"><code class="text-sm font-mono text-blue-600 dark:text-blue-400 whitespace-pre">${codeContent}</code></pre>`;
+      }
+
+      if (inCodeBlock) {
+        codeLines.push(line);
+        return "";
+      }
+
       if (!trimmedLine) return "";
 
-      // 표 처리
       if (trimmedLine.includes("|")) {
         if (!inTable) {
           inTable = true;
@@ -103,16 +123,14 @@ export default function ProjectModal({
         }
         tableRows.push(trimmedLine);
 
-        // 다음 줄이 표가 아니거나 마지막 줄인 경우 표 렌더링
         const nextLine = lines[index + 1]?.trim();
         if (!nextLine?.includes("|") || index === lines.length - 1) {
           inTable = false;
           return formatTable(tableRows);
         }
-        return ""; // 표 중간 줄은 빈 문자열 반환
+        return "";
       }
 
-      // 제목 처리
       if (trimmedLine.startsWith("### ")) {
         return `<h4 class="text-base font-medium mt-3 mb-2 text-slate-800 dark:text-slate-200">${trimmedLine.replace(
           "### ",
@@ -126,26 +144,17 @@ export default function ProjectModal({
         )}</h3>`;
       }
 
-      // 이미지 처리
       if (trimmedLine.startsWith("img(") && trimmedLine.endsWith(")")) {
         const imagePath = trimmedLine.slice(4, -1).trim();
         return `<div class="my-6"><img src="${imagePath}" alt="Project Image" class="w-full rounded-lg shadow-md" /></div>`;
       }
 
-      // 리스트 처리
       if (trimmedLine.startsWith("- ")) {
         let content = trimmedLine.replace("- ", "");
         content = processInlineFormatting(content);
         return `<li class="ml-6 mb-2 text-slate-700 dark:text-slate-300 list-disc">${content}</li>`;
       }
 
-      // 코드 블록 처리
-      if (trimmedLine.startsWith("```") && trimmedLine.endsWith("```")) {
-        const codeContent = trimmedLine.slice(3, -3).trim();
-        return `<pre class="bg-slate-100 dark:bg-slate-700 rounded-lg p-4 overflow-x-auto my-4"><code class="text-sm font-mono text-blue-600 dark:text-blue-400">${codeContent}</code></pre>`;
-      }
-
-      // 일반 텍스트 처리
       const processed = processInlineFormatting(trimmedLine);
       return `<p class="mb-3 text-slate-700 dark:text-slate-300 leading-relaxed">${processed}</p>`;
     });
