@@ -5,6 +5,7 @@ import MergeBank from "./merge_bank";
 import Portfolio from "./portfolio";
 import YenaNow from "./yena_now";
 import OnWear from "./on_wear";
+import Namuh from "./namuh";
 
 export interface Project {
   id: string;
@@ -22,6 +23,7 @@ export interface Project {
 
 export const projects: Project[] = [
   MediX,
+  Namuh,
   YenaNow,
   OnWear,
   Portfolio,
