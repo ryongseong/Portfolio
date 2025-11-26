@@ -30,6 +30,7 @@ export default function ProjectModal({
 }: ProjectModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
   const [detailContent, setDetailContent] = useState<string>("");
+  const [summary, setSummary] = useState<string>("");
   const [activeTab, setActiveTab] = useState<"description" | "details">(
     "description"
   );
@@ -72,6 +73,11 @@ export default function ProjectModal({
         setActiveTab("details");
       } else {
         setDetailContent("");
+      }
+      if (projectData?.summary) {
+        setSummary(projectData.summary);
+      } else {
+        setSummary("");
       }
     }
   }, [isOpen, project.id]);
@@ -454,6 +460,32 @@ export default function ProjectModal({
               </div>
             ) : (
               <div className="mt-2">
+                {summary && (
+                  <div className="my-6 p-4 rounded-lg bg-blue-50/70 border border-blue-200 dark:bg-blue-950/70 dark:border-blue-800">
+                    <div className="flex items-center mb-2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 256 256"
+                        className="w-5 h-5 mr-2 text-blue-800 dark:text-blue-200"
+                      >
+                        <path d="M232,50H160a38,38,0,0,0-32,17.55A38,38,0,0,0,96,50H24a6,6,0,0,0-6,6V200a6,6,0,0,0,6,6H96a26,26,0,0,1,26,26,6,6,0,0,0,12,0,26,26,0,0,1,26-26h72a6,6,0,0,0,6-6V56A6,6,0,0,0,232,50ZM96,194H30V62H96a26,26,0,0,1,26,26V204.31A37.86,37.86,0,0,0,96,194Zm130,0H160a37.87,37.87,0,0,0-26,10.32V88a26,26,0,0,1,26-26h66ZM160,90h40a6,6,0,0,1,0,12H160a6,6,0,0,1,0-12Zm46,38a6,6,0,0,1-6,6H160a6,6,0,0,1,0-12h40A6,6,0,0,1,206,128Zm0,32a6,6,0,0,1-6,6H160a6,6,0,0,1,0-12h40A6,6,0,0,1,206,160Z" />
+                      </svg>
+                      <span className="text-base font-semibold text-blue-800 dark:text-blue-200">
+                        요약 (Summary)
+                      </span>
+                    </div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300 space-y-1">
+                      {summary
+                        .split("\n")
+                        .slice(0, 3)
+                        .map((line, index) => (
+                          <p key={index} className="leading-relaxed">
+                            {line.trim()}
+                          </p>
+                        ))}
+                    </div>
+                  </div>
+                )}
                 {detailContent ? (
                   <div>
                     <div
