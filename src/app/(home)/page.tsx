@@ -1,29 +1,50 @@
 import About from "@/components/home/about";
-import AboutMe from "@/components/home/AboutMe";
+import Exprience from "@/components/home/exprience";
+import Education from "@/components/home/education";
 import ScrollToBtn from "@/components/home/ScollToBtn";
 import ScrollToTopBtn from "@/components/home/ScrollToTopBtn";
 import Skills from "@/components/home/skills";
+import Landing from "@/components/home/landing";
 
 export default function Home() {
   return (
     <section className="flex min-h-[calc(100vh-80px)] flex-col items-center justify-center">
-      <div className="container mx-auto flex px-6 md:flex-row flex-col items-center my-36">
-        <About />
-      </div>
-      <ScrollToBtn target="aboutme" />
-      <div
-        id="aboutme"
-        className="container mx-auto flex px-6 flex-col items-center justify-center mt-36"
+      <section id="landing" className="container mx-auto px-6">
+        <Landing />
+      </section>
+      <ScrollToBtn target="about" />
+
+      <section
+        id="about"
+        className="container mx-auto flex px-6 md:flex-row flex-col items-center my-36"
       >
-        <AboutMe />
-        <ScrollToBtn target="skills" />
-      </div>
-      <div
+        <About />
+      </section>
+      <ScrollToBtn target="exprience" />
+
+      <section
+        id="exprience"
+        className="container mx-auto flex px-6 md:flex-row flex-col items-center justify-center mt-36 mb-36"
+      >
+        <Exprience />
+      </section>
+      <ScrollToBtn target="skills" />
+
+      <section
         id="skills"
         className="container mx-auto flex px-6 md:flex-row flex-col items-center justify-center mt-36"
       >
         <Skills />
-      </div>
+      </section>
+      <ScrollToBtn target="education" />
+
+      <section
+        id="education"
+        className="container mx-auto flex px-6 md:flex-row flex-col items-center justify-center mt-36 mb-36"
+      >
+        <Education />
+      </section>
+
       <ScrollToTopBtn />
     </section>
   );
