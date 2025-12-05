@@ -1,5 +1,5 @@
 import About from "@/components/home/about";
-import Experience from "@/components/home/Experience";
+import Experience from "@/components/home/experience";
 import Education from "@/components/home/education";
 // import ScrollToBtn from "@/components/home/ScollToBtn";
 import ScrollToTopBtn from "@/components/home/ScrollToTopBtn";

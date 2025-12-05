@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Animation from "./Animation";
+import Animation from "./animation";
 
 export default function Landing() {
   const [text, setText] = useState("");
