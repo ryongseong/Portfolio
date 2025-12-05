@@ -1,18 +1,21 @@
-import About from "@/components/home/about";
-import Exprience from "@/components/home/exprience";
-import Education from "@/components/home/education";
-import ScrollToBtn from "@/components/home/ScollToBtn";
+import About from "@/components/home/About";
+import Experience from "@/components/home/Experience";
+import Education from "@/components/home/Education";
+// import ScrollToBtn from "@/components/home/ScollToBtn";
 import ScrollToTopBtn from "@/components/home/ScrollToTopBtn";
-import Skills from "@/components/home/skills";
-import Landing from "@/components/home/landing";
+import Skills from "@/components/home/Skills";
+import Landing from "@/components/home/Landing";
+import TableOfContents from "@/components/home/TableOfContents";
 
 export default function Home() {
   return (
     <section className="flex min-h-[calc(100vh-80px)] flex-col items-center justify-center">
-      <section id="landing" className="container mx-auto px-6">
+      <TableOfContents />
+
+      <section id="landing" className="container mx-auto px-6 my-36">
         <Landing />
       </section>
-      <ScrollToBtn target="about" />
+      {/* <ScrollToBtn target="about" /> */}
 
       <section
         id="about"
@@ -20,15 +23,15 @@ export default function Home() {
       >
         <About />
       </section>
-      <ScrollToBtn target="exprience" />
+      {/* <ScrollToBtn target="exprience" /> */}
 
       <section
-        id="exprience"
+        id="experience"
         className="container mx-auto flex px-6 md:flex-row flex-col items-center justify-center mt-36 mb-36"
       >
-        <Exprience />
+        <Experience />
       </section>
-      <ScrollToBtn target="skills" />
+      {/* <ScrollToBtn target="skills" /> */}
 
       <section
         id="skills"
@@ -36,7 +39,7 @@ export default function Home() {
       >
         <Skills />
       </section>
-      <ScrollToBtn target="education" />
+      {/* <ScrollToBtn target="education" /> */}
 
       <section
         id="education"

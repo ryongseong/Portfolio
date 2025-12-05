@@ -10,9 +10,11 @@ export default function Education() {
         <div className="space-y-4 mx-auto max-w-6xl">
           <div className="rounded-md border border-border bg-card p-5 shadow-sm">
             <h3 className="text-lg font-semibold">
-              삼성청년SW,AI아카데미(Samsung Software AI Academy for Youth)
+              삼성청년SW,AI아카데미 (Samsung Software AI Academy for Youth)
             </h3>
-            <h4 className="text-sm text-muted-foreground">13기</h4>
+            <h4 className="text-sm text-muted-foreground">
+              13기, 비전공(파이썬)
+            </h4>
             <p className="text-xs text-muted-foreground mt-1">2025.01 - </p>
           </div>
           <div className="rounded-md border border-border bg-card p-5 shadow-sm">
