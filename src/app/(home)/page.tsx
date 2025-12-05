@@ -1,10 +1,10 @@
-import About from "@/components/home/About";
+import About from "@/components/home/about";
 import Experience from "@/components/home/Experience";
-import Education from "@/components/home/Education";
+import Education from "@/components/home/education";
 // import ScrollToBtn from "@/components/home/ScollToBtn";
 import ScrollToTopBtn from "@/components/home/ScrollToTopBtn";
-import Skills from "@/components/home/Skills";
-import Landing from "@/components/home/Landing";
+import Skills from "@/components/home/skills";
+import Landing from "@/components/home/landing";
 import TableOfContents from "@/components/home/TableOfContents";
 
 export default function Home() {
