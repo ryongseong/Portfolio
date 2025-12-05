@@ -117,15 +117,32 @@ export default function ProjectItem({
               {workPeriod?.end ? ` - ${formatDate(workPeriod.end)}` : " - 현재"}
             </p>
 
-            <button
-              className="text-xs font-medium text-slate-600 hover:text-black dark:text-slate-400 dark:hover:text-white"
-              onClick={(e) => {
-                e.stopPropagation();
-                setIsModalOpen(true);
-              }}
-            >
-              자세히 보기
-            </button>
+            {githubLink && githubLink !== "Private" && (
+              <div onClick={(e) => e.stopPropagation()}>
+                <a
+                  href={githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 font-medium text-sm transition-colors"
+                >
+                  <span>GitHub</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 ml-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
+                  </svg>
+                </a>
+              </div>
+            )}
           </div>
         </div>
       </div>
