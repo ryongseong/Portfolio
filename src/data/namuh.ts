@@ -225,7 +225,7 @@ export const Namuh = {
     "Redis",
   ],
   image: "/images/projects/namuh.png",
-  github: "",
+  github: "https://github.com/ryongseong/NAMUH",
   workPeriod: {
     start: "2025-10-14",
     end: "2025-11-23",

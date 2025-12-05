@@ -3,7 +3,7 @@
 export default function ScrollToBtn({ target }: { target: string }) {
   return (
     <button
-      className="mt-10 mb-10 group flex h-12 w-12 items-center justify-center rounded-full bg-gray-100/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 text-gray-700 dark:text-gray-300 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-600 animate-bounce"
+      className="z-20 mt-10 mb-10 group flex h-12 w-12 items-center justify-center rounded-full bg-gray-100/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 text-gray-700 dark:text-gray-300 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-600 animate-bounce"
       onClick={() => {
         const el = document.getElementById(target);
         if (el) {
