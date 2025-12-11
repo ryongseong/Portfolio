@@ -127,6 +127,23 @@ export default function Skills() {
                   ></Image>
                 </div>
               </div>
+              <div
+                className="group relative"
+                style={{
+                  opacity: "1",
+                  transform: "rotate(0.501157deg)",
+                }}
+              >
+                <div className="relative">
+                  <Image
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+                    alt="Java"
+                    width={48}
+                    height={48}
+                    className="object-contain"
+                  ></Image>
+                </div>
+              </div>
             </div>
           </div>
           <div
@@ -205,6 +222,23 @@ export default function Skills() {
                   ></Image>
                 </div>
               </div>
+              <div
+                className="group relative"
+                style={{
+                  opacity: "1",
+                  transform: "rotate(0.501157deg)",
+                }}
+              >
+                <div className="relative">
+                  <Image
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
+                    alt="Vue.js"
+                    width={48}
+                    height={48}
+                    className="object-contain"
+                  ></Image>
+                </div>
+              </div>
             </div>
           </div>
           <div
@@ -275,6 +309,23 @@ export default function Skills() {
               >
                 <div className="relative">
                   <Image
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg"
+                    alt="FastAPI"
+                    width={48}
+                    height={48}
+                    className="object-contain"
+                  ></Image>
+                </div>
+              </div>
+              <div
+                className="group relative"
+                style={{
+                  opacity: "1",
+                  transform: "rotate(0.501157deg)",
+                }}
+              >
+                <div className="relative">
+                  <Image
                     src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg"
                     alt="Nest.js"
                     width={48}
@@ -292,8 +343,8 @@ export default function Skills() {
               >
                 <div className="relative">
                   <Image
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg"
-                    alt="FastAPI"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg"
+                    alt="Django"
                     width={48}
                     height={48}
                     className="object-contain"
@@ -395,6 +446,23 @@ export default function Skills() {
                   ></Image>
                 </div>
               </div>
+              <div
+                className="group relative"
+                style={{
+                  opacity: "1",
+                  transform: "rotate(0.501157deg)",
+                }}
+              >
+                <div className="relative">
+                  <Image
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg"
+                    alt="Redis"
+                    width={48}
+                    height={48}
+                    className="object-contain"
+                  ></Image>
+                </div>
+              </div>
             </div>
           </div>
           <div
@@ -448,7 +516,7 @@ export default function Skills() {
               >
                 <div className="relative">
                   <Image
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg"
                     alt="Docker"
                     width={48}
                     height={48}
