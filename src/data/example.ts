@@ -10,6 +10,7 @@ export const Example = {
     start: "",
     end: "",
   },
+  featured: false,
 };
 
 export default Example;

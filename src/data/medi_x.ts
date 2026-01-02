@@ -193,6 +193,7 @@ export const MediX = {
     start: "2024-06-11",
     end: "2024-08-31",
   },
+  featured: true,
 };
 
 export default MediX;

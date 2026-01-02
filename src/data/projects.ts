@@ -20,6 +20,7 @@ export interface Project {
     start: string;
     end?: string;
   };
+  featured: boolean;
 }
 
 export const projects: Project[] = [

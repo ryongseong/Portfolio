@@ -210,6 +210,7 @@ export const YenaNow = {
     start: "2025-07-14",
     end: "2025-08-18",
   },
+  featured: true,
 };
 
 export default YenaNow;

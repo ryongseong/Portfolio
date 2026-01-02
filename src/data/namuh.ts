@@ -230,6 +230,7 @@ export const Namuh = {
     start: "2025-10-14",
     end: "2025-11-23",
   },
+  featured: true,
 };
 
 export default Namuh;
