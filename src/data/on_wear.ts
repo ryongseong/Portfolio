@@ -251,6 +251,7 @@ export const OnWear = {
     start: "2025-08-25",
     end: "2025-09-29",
   },
+  featured: true,
 };
 
 export default OnWear;

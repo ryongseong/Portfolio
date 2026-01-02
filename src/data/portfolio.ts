@@ -45,6 +45,7 @@ export const Portfolio = {
     start: "2025-07-10",
     end: "",
   },
+  featured: false,
 };
 
 export default Portfolio;

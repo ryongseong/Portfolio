@@ -348,6 +348,7 @@ export const MergeBank = {
     start: "2025-05-22",
     end: "2025-05-28",
   },
+  featured: false,
 };
 
 export default MergeBank;
