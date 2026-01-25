@@ -26,8 +26,8 @@ export interface Project {
 export const projects: Project[] = [
   MediX,
   Namuh,
-  YenaNow,
   OnWear,
+  YenaNow,
   Portfolio,
   MergeBank,
   DxLab,
