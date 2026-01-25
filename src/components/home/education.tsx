@@ -15,7 +15,9 @@ export default function Education() {
             <h4 className="text-sm text-muted-foreground">
               13기, 비전공(파이썬)
             </h4>
-            <p className="text-xs text-muted-foreground mt-1">2025.01 - </p>
+            <p className="text-xs text-muted-foreground mt-1">
+              2025.01 - 2025.12
+            </p>
           </div>
           <div className="rounded-md border border-border bg-card p-5 shadow-sm">
             <h3 className="text-lg font-semibold">동의대학교</h3>
