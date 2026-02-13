@@ -11,6 +11,13 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
+    id: "4",
+    title: "(주)리그시스템 사원",
+    description: "KTds VIVACE-PLM 개발",
+    period: "2026.02 ~ 현재",
+    responsibilities: [],
+  },
+  {
     id: "3",
     title: "(주)크리스틴컴퍼니 인턴",
     description: "백엔드, 데이터 수집/관리 직무",
@@ -67,4 +74,3 @@ export const experiences: Experience[] = [
     ],
   },
 ];
-
