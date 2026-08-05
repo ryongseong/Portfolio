@@ -33,7 +33,7 @@ export default function Skills() {
         </div>
         <div className="grid gap-6 md:grid-cols-2 mx-auto max-w-6xl">
           <div
-            className="relative rounded-xl border border-border/50 bg-card/50 backdrop-blur-sm p-8 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 h-full flex flex-col h-auto"
+            className="relative rounded-xl border border-border/50 bg-card/50 backdrop-blur-sm p-8 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-auto"
             style={{
               opacity: "1",
               transform: "none",
@@ -59,6 +59,23 @@ export default function Skills() {
               ></div>
             </div>
             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
+              <div
+                className="group relative"
+                style={{
+                  opacity: "1",
+                  transform: "rotate(0.501157deg)",
+                }}
+              >
+                <div className="relative">
+                  <Image
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+                    alt="Java"
+                    width={48}
+                    height={48}
+                    className="object-contain"
+                  ></Image>
+                </div>
+              </div>
               <div
                 className="group relative"
                 style={{
@@ -127,23 +144,6 @@ export default function Skills() {
                   ></Image>
                 </div>
               </div>
-              <div
-                className="group relative"
-                style={{
-                  opacity: "1",
-                  transform: "rotate(0.501157deg)",
-                }}
-              >
-                <div className="relative">
-                  <Image
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
-                    alt="Java"
-                    width={48}
-                    height={48}
-                    className="object-contain"
-                  ></Image>
-                </div>
-              </div>
             </div>
           </div>
           <div
@@ -197,7 +197,7 @@ export default function Skills() {
               >
                 <div className="relative">
                   <Image
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original-wordmark.svg"
                     alt="Next.js"
                     width={48}
                     height={48}
@@ -275,6 +275,23 @@ export default function Skills() {
               >
                 <div className="relative">
                   <Image
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg"
+                    alt="Spring"
+                    width={48}
+                    height={48}
+                    className="object-contain"
+                  ></Image>
+                </div>
+              </div>
+              <div
+                className="group relative"
+                style={{
+                  opacity: "1",
+                  transform: "rotate(0.501157deg)",
+                }}
+              >
+                <div className="relative">
+                  <Image
                     src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
                     alt="Node.js"
                     width={48}
@@ -328,23 +345,6 @@ export default function Skills() {
                   <Image
                     src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg"
                     alt="Nest.js"
-                    width={48}
-                    height={48}
-                    className="object-contain"
-                  ></Image>
-                </div>
-              </div>
-              <div
-                className="group relative"
-                style={{
-                  opacity: "1",
-                  transform: "rotate(0.501157deg)",
-                }}
-              >
-                <div className="relative">
-                  <Image
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg"
-                    alt="Django"
                     width={48}
                     height={48}
                     className="object-contain"
@@ -518,6 +518,23 @@ export default function Skills() {
                   <Image
                     src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg"
                     alt="Docker"
+                    width={48}
+                    height={48}
+                    className="object-contain"
+                  ></Image>
+                </div>
+              </div>
+              <div
+                className="group relative"
+                style={{
+                  opacity: "1",
+                  transform: "rotate(0.501157deg)",
+                }}
+              >
+                <div className="relative">
+                  <Image
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg"
+                    alt="Jenkins"
                     width={48}
                     height={48}
                     className="object-contain"
