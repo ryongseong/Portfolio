@@ -313,7 +313,14 @@ export default function Skills() {
                     alt="Express"
                     width={48}
                     height={48}
-                    className="object-contain"
+                    className="object-contain dark:hidden"
+                  ></Image>
+                  <Image
+                    src="/icons/express-dark.png"
+                    alt="Express"
+                    width={48}
+                    height={48}
+                    className="hidden dark:inline-block mr-1"
                   ></Image>
                 </div>
               </div>
@@ -499,7 +506,7 @@ export default function Skills() {
               >
                 <div className="relative">
                   <Image
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg"
                     alt="AWS"
                     width={48}
                     height={48}
@@ -554,7 +561,14 @@ export default function Skills() {
                     alt="Vercel"
                     width={48}
                     height={48}
-                    className="object-contain"
+                    className="object-contain dark:hidden"
+                  ></Image>
+                  <Image
+                    src="/icons/vercel-dark.png"
+                    alt="Vercel"
+                    width={48}
+                    height={48}
+                    className="hidden dark:inline-block mr-1"
                   ></Image>
                 </div>
               </div>
