@@ -11,11 +11,26 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
-    id: "4",
+    id: "5",
     title: "(주)리그시스템 사원",
-    description: "KTds VIVACE-PLM 개발",
+    description: "ktds VIVACE-PLM 개발/운영",
     period: "2026.02 ~ 현재",
     responsibilities: [],
+  },
+  {
+    id: "4",
+    title: "삼성 청년 SW•AI 아카데미(SSAFY) 13기",
+    description: `Python을 사용한 알고리즘, Django, Vue를 사용한 실습기반 웹 풀스택 학습
+7주간 진행되는 팀 프로젝트 3회 수행
+AI기능/모델링/파인튜닝 실습 특강 50시간 이수`,
+    period: "2025.01 ~ 2025.12",
+    responsibilities: [
+      {
+        title: "알고리즘 스터디 진행 (2025.03.01 ~ 2025.04.30)",
+        content:
+          "매주 알고리즘 문제 3개를 선정하여 해결한 이후 스터디원들과 함께 문제에 대한 접근 방식, 해결 방법에 대해 토론",
+      },
+    ],
   },
   {
     id: "3",
