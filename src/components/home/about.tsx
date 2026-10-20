@@ -67,7 +67,7 @@ export default function About() {
               <h6 className="font-semibold">
                 위치:{" "}
                 <span className="text-gray-500 dark:text-gray-400">
-                  부산, 대한민국
+                  성남시 분당구, 대한민국
                 </span>
               </h6>
             </div>
