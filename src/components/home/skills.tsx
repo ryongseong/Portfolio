@@ -540,8 +540,59 @@ export default function Skills() {
               >
                 <div className="relative">
                   <Image
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg"
+                    alt="Kubernetes"
+                    width={48}
+                    height={48}
+                    className="object-contain"
+                  ></Image>
+                </div>
+              </div>
+              <div
+                className="group relative"
+                style={{
+                  opacity: "1",
+                  transform: "rotate(0.501157deg)",
+                }}
+              >
+                <div className="relative">
+                  <Image
                     src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg"
                     alt="Jenkins"
+                    width={48}
+                    height={48}
+                    className="object-contain"
+                  ></Image>
+                </div>
+              </div>
+              <div
+                className="group relative"
+                style={{
+                  opacity: "1",
+                  transform: "rotate(0.501157deg)",
+                }}
+              >
+                <div className="relative">
+                  <Image
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grafana/grafana-original.svg"
+                    alt="Grafana"
+                    width={48}
+                    height={48}
+                    className="object-contain"
+                  ></Image>
+                </div>
+              </div>
+              <div
+                className="group relative"
+                style={{
+                  opacity: "1",
+                  transform: "rotate(0.501157deg)",
+                }}
+              >
+                <div className="relative">
+                  <Image
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-plain.svg"
+                    alt="GithubActions"
                     width={48}
                     height={48}
                     className="object-contain"
@@ -642,6 +693,23 @@ export default function Skills() {
               >
                 <div className="relative">
                   <Image
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/intellij/intellij-original.svg"
+                    alt="Intellij"
+                    width={48}
+                    height={48}
+                    className="object-contain"
+                  ></Image>
+                </div>
+              </div>
+              <div
+                className="group relative"
+                style={{
+                  opacity: "1",
+                  transform: "rotate(0.501157deg)",
+                }}
+              >
+                <div className="relative">
+                  <Image
                     src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webstorm/webstorm-original.svg"
                     alt="WebStorm"
                     width={48}
@@ -678,6 +746,23 @@ export default function Skills() {
                   <Image
                     src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg"
                     alt="Jira"
+                    width={48}
+                    height={48}
+                    className="object-contain"
+                  ></Image>
+                </div>
+              </div>
+              <div
+                className="group relative"
+                style={{
+                  opacity: "1",
+                  transform: "rotate(0.501157deg)",
+                }}
+              >
+                <div className="relative">
+                  <Image
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/confluence/confluence-original.svg"
+                    alt="confluence"
                     width={48}
                     height={48}
                     className="object-contain"
